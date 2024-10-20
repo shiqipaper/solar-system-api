@@ -5,8 +5,8 @@ class Planet:
         self.description = description
 planets = [
     Planet(1, "Mercury", "Smallest planet"),
-    Planet(2, "Venus", "Earths closet planet"),
-    Planet(3, "Earth", "It has 71 '%' of water"),
+    Planet(2, "Venus", "Earth's closet planet"),
+    Planet(3, "Earth", "It has 71% of water"),
     Planet(4, "Mars", "It's red and has life"),
     Planet(5, "Jupiter", "It is a red planet"),
     Planet(6, "Saturn", "It is a gas planet"),
