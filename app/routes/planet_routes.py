@@ -9,11 +9,7 @@ def get_all_panets():
   result = []
 
   for planet in planets:
-    result.append(dict(
-      id=planet.id,
-      name=planet.name,
-      description=planet.description
-    ))
+    result.append(planet.to_dict())
   return result
 
 # endpoint for reading one planet
@@ -21,11 +17,8 @@ def get_all_panets():
 def get_one_panet(planet_id):
 
   planet = validate_planet(planet_id)
-  
-  return (dict(
-        id=planet.id,
-        name=planet.name,
-        description=planet.description))
+
+  return planet.to_dict(), 200
 
 
 def validate_planet(planet_id):
@@ -41,5 +34,3 @@ def validate_planet(planet_id):
 
     response = {"message": f"planet {planet_id} not found"}
     abort(make_response(response, 404))
-
-

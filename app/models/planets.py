@@ -3,6 +3,15 @@ class Planet:
         self.id = id
         self.name = name
         self.description = description
+
+    def to_dict(self):
+        return dict(
+        id=self.id,
+        name=self.name,
+        description=self.description)
+
+
+
 planets = [
     Planet(1, "Mercury", "Smallest planet"),
     Planet(2, "Venus", "Earth's closet planet"),
