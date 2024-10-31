@@ -1,7 +1,7 @@
 from flask import Blueprint, abort, make_response,request, Response
 from app.models.planets import Planet
 from ..db import db
-# endpoint for reading all planets info
+# endpoint
 planets_bp = Blueprint("planets_bp", __name__, url_prefix = "/planets")
 
 @planets_bp.post("")
