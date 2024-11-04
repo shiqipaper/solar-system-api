@@ -7,11 +7,12 @@ planets_bp = Blueprint("planets_bp", __name__, url_prefix = "/planets")
 @planets_bp.post("")
 def create_planet():
   request_body = request.get_json()
-  name = request_body["name"]
-  description = request_body["description"]
-  random = request_body["random"]
 
-  new_planet = Planet(name=name, description=description, random=random)
+  new_planet = Planet.from_dict(request_body)
+  # name = request_body["name"]
+  # description = request_body["description"]
+  # random = request_body["random"]
+  # new_planet = Planet(name=name, description=description, random=random)
   db.session.add(new_planet)
   db.session.commit()
 

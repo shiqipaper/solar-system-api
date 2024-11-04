@@ -13,4 +13,12 @@ class Planet(db.Model):
     name=self.name,
     description=self.description,
     random=self.random)
+  
+  @classmethod
+  def from_dict(cls, planet_data):
+    return cls(
+      name=planet_data["name"],
+      description=planet_data["description"],
+      random=planet_data["random"]
+    )
 
