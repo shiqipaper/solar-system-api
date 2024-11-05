@@ -34,6 +34,11 @@ def get_all_planets():
   if name_param:
     query = query.where(Planet.name.ilike(f"%{name_param}%")).order_by(Planet.id)
 
+  # moons_num_param = request.args.get("moons_num")
+  # if moons_num_param:
+  #   query = query.where(Planet.moons_num > 3).order_by(Planet.id)
+
+
 
   query = query.order_by(Planet.id)
   planets = db.session.scalars(query)
@@ -43,7 +48,7 @@ def get_all_planets():
   return planets_response, 200
 
 
-@planets_bp.get("/<planet_id")
+@planets_bp.get("/<planet_id>")
 def get_single_planet(planet_id):
   planet = validate_model(Planet, planet_id)
 
@@ -56,7 +61,9 @@ def update_planet(planet_id):
 
   planet.name = request_body["name"]
   planet.description = request_body["description"]
-  planet.random = request_body["random"]
+  planet.moons_num = request_body["moons_num"]
+  planet.distance_from_sun = request_body["distance_from_sun"]
+  planet.surface_area = request_body["surface_area"]
 
   db.session.commit()
   return Response(status=204, mimetype='application/json')
