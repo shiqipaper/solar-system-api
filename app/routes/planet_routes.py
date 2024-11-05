@@ -43,7 +43,7 @@ def get_all_planets():
   return planets_response, 200
 
 
-@planets_bp.get("/<planet_id")
+@planets_bp.get("/<planet_id>")
 def get_single_planet(planet_id):
   planet = validate_model(Planet, planet_id)
 
