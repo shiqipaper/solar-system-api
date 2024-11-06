@@ -12,4 +12,3 @@ with my_app.app_context():
     db.session.add(Planet(id=7, name="Uranus", surface_area=3121, moons_num=27, distance_from_sun=1787, description="Greek personification of the sky or heavens, aka Caelus.")),
     db.session.add(Planet(id=8,name="Neptune", surface_area=2941, moons_num=14, distance_from_sun=2798, description="Roman god of the sea aka, Poseidon."))
     db.session.commit()
-
